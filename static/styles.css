@@ -63,3 +63,14 @@ li.workshop .workshop-notes {
   margin-top: -20px;
   padding-bottom: 10px;
 }
+
+.day {
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.month {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
+}

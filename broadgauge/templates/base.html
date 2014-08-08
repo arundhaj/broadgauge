@@ -18,6 +18,10 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+        /* to defer inline functions after page load */
+        window.loadEvents = [];
+    </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -84,5 +88,11 @@
       </div>
     </footer>
     <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/d3.v3.min.js"></script>
+    <script src="/static/js/visualization.js"></script>
+    <script type="text/javascript">
+        /* invoke all deferred functions */
+        $.each(loadEvents, function(idx, f) { f(); });
+    </script>
   </body>
 </html>

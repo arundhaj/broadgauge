@@ -28,6 +28,21 @@
   </div>
 </div>
 
+<div class="container">
+    {% block year_calendar %}
+        <script type="text/javascript">
+            /* deferring this until the page loads */
+            window.loadEvents.push(function() {
+                var all_workshops = {{ all_workshops }};
+                drawYear(d3.select("#year"), all_workshops);
+                utilsWindowResize(drawYear, d3.select("#year"), all_workshops);
+            });
+        </script>
+    {% endblock %}
+    <div id="year">
+    </div>
+</div>
+
 <div class="container-wrapper-workshops">
 <div class="container">
   <div class="row">

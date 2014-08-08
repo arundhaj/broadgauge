@@ -55,7 +55,17 @@ class home:
         else:
             upcoming_workshops = Workshop.findall(status='confirmed')
             completed_workshops = Workshop.findall(status='completed')
+
+            all_workshops = completed_workshops + upcoming_workshops
+            all_workshops_json = []
+            for w in all_workshops:
+                workshop = {}
+                workshop['title'] = w.title
+                workshop['date'] = w.date.strftime("%Y-%m-%d")
+                all_workshops_json.append(workshop)
+
             return render_template("home.html",
+                all_workshops=json.dumps(all_workshops_json),
                 upcoming_workshops=upcoming_workshops,
                 completed_workshops=completed_workshops)
 
